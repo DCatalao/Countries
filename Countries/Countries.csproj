@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F903A477-5797-47F5-B19F-3DFA135FD8F1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Countries</RootNamespace>
+    <AssemblyName>Countries</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.EF6.1.0.112.0\lib\net46\System.Data.SQLite.EF6.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SQLite.Linq.1.0.112.0\lib\net46\System.Data.SQLite.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\NetworkService.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Currency.cs" />
+    <Compile Include="Models\Language.cs" />
+    <Compile Include="Models\Response.cs" />
+    <Compile Include="Models\Translations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Flags\afghanistan.png" />
+    <Resource Include="Flags\aland.png" />
+    <Resource Include="Flags\albania.png" />
+    <Resource Include="Flags\algeria.png" />
+    <Resource Include="Flags\americanSamoa.png" />
+    <Resource Include="Flags\andorra.png" />
+    <Resource Include="Flags\angola.png" />
+    <Resource Include="Flags\anguilla.png" />
+    <Resource Include="Flags\antarctida.png" />
+    <Resource Include="Flags\antiguaBarbuda.png" />
+    <Resource Include="Flags\argentina.png" />
+    <Resource Include="Flags\armenia.png" />
+    <Resource Include="Flags\aruba.png" />
+    <Resource Include="Flags\australia.png" />
+    <Resource Include="Flags\austria.png" />
+    <Resource Include="Flags\azerbaijan.png" />
+    <Resource Include="Flags\bahamas.png" />
+    <Resource Include="Flags\bahrein.png" />
+    <Resource Include="Flags\bangladesh.png" />
+    <Resource Include="Flags\barbados.png" />
+    <Resource Include="Flags\belgium.png" />
+    <Resource Include="Flags\belize.png" />
+    <Resource Include="Flags\benin.png" />
+    <Resource Include="Flags\bermuda.png" />
+    <Resource Include="Flags\bhutan.png" />
+    <Resource Include="Flags\bolivia.png" />
+    <Resource Include="Flags\bonaire.png" />
+    <Resource Include="Flags\bosnia.png" />
+    <Resource Include="Flags\botswana.png" />
+    <Resource Include="Flags\bouvet.png" />
+    <Resource Include="Flags\brazil.png" />
+    <Resource Include="Flags\british_indian_ocean_territory.png" />
+    <Resource Include="Flags\brunei.png" />
+    <Resource Include="Flags\bulgaria.png" />
+    <Resource Include="Flags\burkinafaso.png" />
+    <Resource Include="Flags\burundi.png" />
+    <Resource Include="Flags\camboja.png" />
+    <Resource Include="Flags\cameroon.png" />
+    <Resource Include="Flags\canada.png" />
+    <Resource Include="Flags\capevert.png" />
+    <Resource Include="Flags\cayman.png" />
+    <Resource Include="Flags\central_african_republic.png" />
+    <Resource Include="Flags\chad.png" />
+    <Resource Include="Flags\chile.png" />
+    <Resource Include="Flags\china.png" />
+    <Resource Include="Flags\christmas.png" />
+    <Resource Include="Flags\cocos.png" />
+    <Resource Include="Flags\colombia.png" />
+    <Resource Include="Flags\comoros.png" />
+    <Resource Include="Flags\congo.png" />
+    <Resource Include="Flags\cook_island.png" />
+    <Resource Include="Flags\costa_rica.png" />
+    <Resource Include="Flags\croatia.png" />
+    <Resource Include="Flags\cuba.png" />
+    <Resource Include="Flags\curacao.png" />
+    <Resource Include="Flags\cyprus.png" />
+    <Resource Include="Flags\czech_republic.png" />
+    <Resource Include="Flags\denmark.png" />
+    <Resource Include="Flags\djibouti.png" />
+    <Resource Include="Flags\dominica.png" />
+    <Resource Include="Flags\dominican_republic.png" />
+    <Resource Include="Flags\ecuador.png" />
+    <Resource Include="Flags\egypt.png" />
+    <Resource Include="Flags\elsalvador.png" />
+    <Resource Include="Flags\equatorialGuinea.png" />
+    <Resource Include="Flags\eritrea.png" />
+    <Resource Include="Flags\estonia.png" />
+    <Resource Include="Flags\ethiopia.png" />
+    <Resource Include="Flags\falkland.png" />
+    <Resource Include="Flags\faroe.png" />
+    <Resource Include="Flags\fiji.png" />
+    <Resource Include="Flags\finland.png" />
+    <Resource Include="Flags\france.png" />
+    <Resource Include="Flags\frenchguiana.png" />
+    <Resource Include="Flags\frenchpolinesia.png" />
+    <Resource Include="Flags\frenchsouthernterritories.png" />
+    <Resource Include="Flags\gabon.png" />
+    <Resource Include="Flags\gambia.png" />
+    <Resource Include="Flags\georgia.png" />
+    <Resource Include="Flags\germany.png" />
+    <Resource Include="Flags\ghana.png" />
+    <Resource Include="Flags\gibraltar.png" />
+    <Resource Include="Flags\greece.png" />
+    <Resource Include="Flags\greenland.png" />
+    <Resource Include="Flags\grenada.png" />
+    <Resource Include="Flags\guadeloupe.png" />
+    <Resource Include="Flags\guam.png" />
+    <Resource Include="Flags\guatemala.png" />
+    <Resource Include="Flags\guernsey.png" />
+    <Resource Include="Flags\guinea-bissau.png" />
+    <Resource Include="Flags\guinea.png" />
+    <Resource Include="Flags\guyana.png" />
+    <Resource Include="Flags\haiti.png" />
+    <Resource Include="Flags\heardisland.png" />
+    <Resource Include="Flags\holysee.png" />
+    <Resource Include="Flags\honduras.png" />
+    <Resource Include="Flags\hongkong.png" />
+    <Resource Include="Flags\hungary.png" />
+    <Resource Include="Flags\iceland.png" />
+    <Resource Include="Flags\india.png" />
+    <Resource Include="Flags\indonesia.png" />
+    <Resource Include="Flags\iran.png" />
+    <Resource Include="Flags\iraq.png" />
+    <Resource Include="Flags\ireland.png" />
+    <Resource Include="Flags\isleofman.png" />
+    <Resource Include="Flags\israel.png" />
+    <Resource Include="Flags\italy.png" />
+    <Resource Include="Flags\ivoire-cote.png" />
+    <Resource Include="Flags\jamaica.png" />
+    <Resource Include="Flags\japan.png" />
+    <Resource Include="Flags\jersey.png" />
+    <Resource Include="Flags\jordan.png" />
+    <Resource Include="Flags\kazakhstan.png" />
+    <Resource Include="Flags\kenya.png" />
+    <Resource Include="Flags\kiribati.png" />
+    <Resource Include="Flags\kuwait.png" />
+    <Resource Include="Flags\kyrgyzstan.png" />
+    <Resource Include="Flags\laos.png" />
+    <Resource Include="Flags\latvia.png" />
+    <Resource Include="Flags\lebanon.png" />
+    <Resource Include="Flags\lesotho.png" />
+    <Resource Include="Flags\liberia.png" />
+    <Resource Include="Flags\libya.png" />
+    <Resource Include="Flags\liechtenstein.png" />
+    <Resource Include="Flags\lithuania.png" />
+    <Resource Include="Flags\luxembourg.png" />
+    <Resource Include="Flags\macao.png" />
+    <Resource Include="Flags\macedonia.png" />
+    <Resource Include="Flags\madagascar.png" />
+    <Resource Include="Flags\malawi.png" />
+    <Resource Include="Flags\malaysia.png" />
+    <Resource Include="Flags\maldives.png" />
+    <Resource Include="Flags\mali.png" />
+    <Resource Include="Flags\malta.png" />
+    <Resource Include="Flags\marshallislands.png" />
+    <Resource Include="Flags\martinique.png" />
+    <Resource Include="Flags\mauritania.png" />
+    <Resource Include="Flags\mauritius.png" />
+    <Resource Include="Flags\mayotte.png" />
+    <Resource Include="Flags\mexico.png" />
+    <Resource Include="Flags\micronesia.png" />
+    <Resource Include="Flags\moldova.png" />
+    <Resource Include="Flags\monaco.png" />
+    <Resource Include="Flags\mongolia.png" />
+    <Resource Include="Flags\montenegro.png" />
+    <Resource Include="Flags\montserrat.png" />
+    <Resource Include="Flags\morocco.png" />
+    <Resource Include="Flags\mozambique.png" />
+    <Resource Include="Flags\myanmar.png" />
+    <Resource Include="Flags\namibia.png" />
+    <Resource Include="Flags\nauru.png" />
+    <Resource Include="Flags\nepal.png" />
+    <Resource Include="Flags\netherlands.png" />
+    <Resource Include="Flags\new-caledonia.png" />
+    <Resource Include="Flags\new-zealand.png" />
+    <Resource Include="Flags\nicaragua.png" />
+    <Resource Include="Flags\niger.png" />
+    <Resource Include="Flags\nigeria.png" />
+    <Resource Include="Flags\niue.png" />
+    <Resource Include="Flags\norfolk.png" />
+    <Resource Include="Flags\northern_mariana.png" />
+    <Resource Include="Flags\northkorea.png" />
+    <Resource Include="Flags\norway.png" />
+    <Resource Include="Flags\oman.png" />
+    <Resource Include="Flags\pakistan.png" />
+    <Resource Include="Flags\palau.png" />
+    <Resource Include="Flags\palestine.png" />
+    <Resource Include="Flags\panama.png" />
+    <Resource Include="Flags\papua.png" />
+    <Resource Include="Flags\paraguay.png" />
+    <Resource Include="Flags\peru.png" />
+    <Resource Include="Flags\philippines.png" />
+    <Resource Include="Flags\pitcairn.png" />
+    <Resource Include="Flags\poland.png" />
+    <Resource Include="Flags\portugal.png" />
+    <Resource Include="Flags\puerto-rico.png" />
+    <Resource Include="Flags\qatar.png" />
+    <Resource Include="Flags\republic-of-kosovo.png" />
+    <Resource Include="Flags\reunion.png" />
+    <Resource Include="Flags\romania.png" />
+    <Resource Include="Flags\russia.png" />
+    <Resource Include="Flags\rwanda.png" />
+    <Resource Include="Flags\saint-barthelemy.png" />
+    <Resource Include="Flags\saint-helena.png" />
+    <Resource Include="Flags\saint-kitts.png" />
+    <Resource Include="Flags\saint-lucia.png" />
+    <Resource Include="Flags\saint-martin.png" />
+    <Resource Include="Flags\saint-pierre.png" />
+    <Resource Include="Flags\saint-vincent.png" />
+    <Resource Include="Flags\samoa.png" />
+    <Resource Include="Flags\san-marino.png" />
+    <Resource Include="Flags\saotome.png" />
+    <Resource Include="Flags\saudi-arabia.png" />
+    <Resource Include="Flags\senegal.png" />
+    <Resource Include="Flags\serbia.png" />
+    <Resource Include="Flags\seychelles.png" />
+    <Resource Include="Flags\sierra-leone.png" />
+    <Resource Include="Flags\singapore.png" />
+    <Resource Include="Flags\sint-maarten.png" />
+    <Resource Include="Flags\slovakia.png" />
+    <Resource Include="Flags\slovenia.png" />
+    <Resource Include="Flags\solomon-islands.png" />
+    <Resource Include="Flags\somalia.png" />
+    <Resource Include="Flags\south-africa.png" />
+    <Resource Include="Flags\south-georgia.png" />
+    <Resource Include="Flags\south-korea.png" />
+    <Resource Include="Flags\south-sudan.png" />
+    <Resource Include="Flags\spain.png" />
+    <Resource Include="Flags\sri-lanka.png" />
+    <Resource Include="Flags\sudan.png" />
+    <Resource Include="Flags\suriname.png" />
+    <Resource Include="Flags\svalbard.png" />
+    <Resource Include="Flags\swaziland.png" />
+    <Resource Include="Flags\sweden.png" />
+    <Resource Include="Flags\switzerland.png" />
+    <Resource Include="Flags\syria.png" />
+    <Resource Include="Flags\taiwan.png" />
+    <Resource Include="Flags\tajikistan.png" />
+    <Resource Include="Flags\tanzania.png" />
+    <Resource Include="Flags\thailand.png" />
+    <Resource Include="Flags\timor.png" />
+    <Resource Include="Flags\togo.png" />
+    <Resource Include="Flags\tokelau.png" />
+    <Resource Include="Flags\tonga.png" />
+    <Resource Include="Flags\trinidad.png" />
+    <Resource Include="Flags\tunisia.png" />
+    <Resource Include="Flags\turkey.png" />
+    <Resource Include="Flags\turkmenistan.png" />
+    <Resource Include="Flags\turks-caicos.png" />
+    <Resource Include="Flags\tuvalu.png" />
+    <Resource Include="Flags\uganda.png" />
+    <Resource Include="Flags\ukraine.png" />
+    <Resource Include="Flags\united-emirates.png" />
+    <Resource Include="Flags\united-kingdom.png" />
+    <Resource Include="Flags\united-states-of-america.png" />
+    <Resource Include="Flags\united_states_minor_outlying_islands.png" />
+    <Resource Include="Flags\uruguay.png" />
+    <Resource Include="Flags\uzbekistan.png" />
+    <Resource Include="Flags\vanuatu.png" />
+    <Resource Include="Flags\venezuela.png" />
+    <Resource Include="Flags\vietnam.png" />
+    <Resource Include="Flags\virgin_islands%28us%29.png" />
+    <Resource Include="Flags\virgin_islands_brittish.png" />
+    <Resource Include="Flags\wallis.png" />
+    <Resource Include="Flags\western-sahara.png" />
+    <Resource Include="Flags\yemen.png" />
+    <Resource Include="Flags\zambia.png" />
+    <Resource Include="Flags\zimbabwe.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>
