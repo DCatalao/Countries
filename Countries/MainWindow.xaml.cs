@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Countries.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,12 +18,22 @@ namespace Countries
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// </summary>    
     public partial class MainWindow : Window
     {
+        #region Atributos
+
+        private NetworkService networkService;
+        private DialogService dialogService;
+        private DataService dataService;
+
+        #endregion
         public MainWindow()
         {
             InitializeComponent();
+            networkService = new NetworkService();
+            dialogService = new DialogService();
+            dataService = new DataService();
         }
     }
 }
