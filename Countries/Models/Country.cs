@@ -16,12 +16,12 @@ namespace Countries.Models
         public string capital { get; set; }
         public List<string> altSpellings { get; set; }
         public string region { get; set; }
-        public string subregion { get; set; }
-        public int population { get; set; }
-        public List<double> latlng { get; set; }
+        public string subRegion { get; set; }
+        public string population { get; set; }
+        public List<string> latlng { get; set; }
         public string demonym { get; set; }
-        public double? area { get; set; }
-        public double? gini { get; set; }
+        public string area { get; set; }
+        public string gini { get; set; }
         public List<string> timezones { get; set; }
         public List<string> borders { get; set; }
         public string nativeName { get; set; }

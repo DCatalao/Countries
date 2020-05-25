@@ -63,17 +63,17 @@ namespace Countries
             
             if(Countries.Count == 0)
             {
-                //LabelResultado.Text = "Não há ligação à Internet e a Base de Dados não foi préviamente carregada! Tente novamente mais tarde!"
+                //LabelResultado.Text = "Não há ligação à Internet e a Base de Dados não foi préviamente carregada! \n Tente novamente mais tarde!"
                 return;
             }
 
             if (load)
             {
-                //LabelStatus.Text = string.Format("Taxas carregadas da internet em {0:F}", DateTime.Now);
+                //LabelStatus.Text = string.Format("Países carregados da internet em {0:F}", DateTime.Now);
             }
             else
             {
-                //LabelStatus.Text = string.Format("Taxas carregadas da Base de Dados.");
+                //LabelStatus.Text = string.Format("Países carregados da Base de Dados.");
             }
 
         }
@@ -88,6 +88,8 @@ namespace Countries
             var response = await apiService.GetCountries("http://restcountries.eu", "/rest/v2/all");
 
             Countries = (List<Country>)response.Result;
+
+            dataService.SaveData(Countries);
           
         }
     }
